@@ -18,13 +18,6 @@ Type:
 pip install zebrazoom
 ```
 
-If you are on Mac, type:
-
-```
-pip uninstall opencv-python
-pip install opencv-python-headless
-```
-
 That's it! ZebraZoom is now installed on your computer!
 
 If you want to upgrade to the latest release of ZebraZoom later on, you can type:
