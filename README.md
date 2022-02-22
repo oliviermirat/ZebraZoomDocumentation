@@ -1,6 +1,6 @@
 # ZebraZoomDocumentation
 
-Documentation is live here: https://zebrazoom.org/documentation/docs/introduction/
+Documentation is live here: https://zebrazoom.org/documentation/docs/intro
 
 ZebraZoom Github: https://github.com/oliviermirat/ZebraZoom
 
