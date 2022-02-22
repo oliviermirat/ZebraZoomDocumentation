@@ -46,3 +46,13 @@ The full list of parameters available for each bout is:
 ```
 
 Here's also an [example script](https://github.com/oliviermirat/ZebraZoom/blob/master/readAndAnalyzeZZoutputWithPython/readBouts.py) used to process the outputs of ZebraZoom.
+
+### Access flag field
+
+From the GUI visualisation, you can [manually flag bouts](https://zebrazoom.org/documentation/docs/resultsCheck/flags). To access this information from the supstruct, you can use:
+
+```
+supstruct['wellPoissMouv'][2][0][0].get('flag')
+```
+
+It will return None if the bout was not flagged, 1 if the bout was flagged.
