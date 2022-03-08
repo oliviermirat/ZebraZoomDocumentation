@@ -60,6 +60,10 @@ while putting the parameters:
 
 - removeOutliers (OPTIONAL): default is False, can also be set to True. The removal of outliers is performed before the clustering analysis.
 
+- frameStepForDistanceCalculation (OPTIONAL): to calculate the distance travelled for each bout, in order to avoid the noise caused by subsequent close-by (x, y) coordinates of the center of the head of the animal, the (x, y) coordinates to calculate the total distance are not taken for every frame of the bout, but rather for every 'frameStepForDistanceCalculation' frame in the bout. The default value is 4, which is the same default value as when accessed from the GUI.
+
+- removeBoutsContainingNanValuesInParametersUsedForClustering (OPTIONAL): if set to True (which is the default value) all bouts containing nan values in parameters used for clustering will be removed from the dataset before clustering: importantly, in this situation, the number of bouts removed will be displayed inside the anaconda prompt. If the parameter removeBoutsContainingNanValuesInParametersUsedForClustering is set to False, then all nan values will be replaced by zeros and no bouts will be removed.
+
 ## Clustering analysis per frame (for zebrafish only) through the command line
 
 This can be done with the command:
