@@ -4,31 +4,40 @@ sidebar_position: 6
 
 # Calculating fish tail curvature
 
-To make ZebraZoom calculate the curvature of every bout detected, you can set the parameter "perBoutOutput" to 1 (the default value is 0).
-This will create in each of the output folders a subfolder called "perBoutOutput" that will contain for each bout detected: a plot of the tail angle, the curvature plot, a pickle file containing the curvature data (see [here an example](https://github.com/oliviermirat/ZebraZoom/blob/master/readAndAnalyzeZZoutputWithPython/loadCurvature.py) of how to load pickled data), and a short video of the bout with the fish position being adjusted in order for the head of the fish to be in the middle top of the video and the main axis of the tail to be aligned with the y axis.
-The curvature is being calculated using the method described in this [Wikipedia page](https://en.wikipedia.org/wiki/Curvature#In_terms_of_a_general_parametrization) (see the section "In terms of a general parametrization") in this [section of the ZebraZoom code](https://github.com/oliviermirat/ZebraZoom/blob/master/zebrazoom/code/dataPostProcessing/perBoutOutput.py).
 
-You can also adjust the following parameters inside the configuration file:
+## Summary
 
-- "perBoutOutputVideoStartStopFrameMargin" (default value is 0): this will create a video of the bout starting perBoutOutputVideoStartStopFrameMargin frames before the beginning of the bout and ending perBoutOutputVideoStartStopFrameMargin frames after the bout.
+To calculate the curvature for every bouts, you can add, for instance, the following parameters inside your configuration file:
+          
+"perBoutOutput": 1, "nbTailPoints": 30, "curvatureMedianFilterSmoothingWindow": 7, "smoothTailHeadEmbeded": 60, "smoothTailHeadEmbededNbOfIterations": 3, "createPandasDataFrameOfParameters": 1, "videoFPS": fpsInYourVideo, "videoPixelSize": pixelSizeInYourVideo
+
+You can decrease slightly "curvatureMedianFilterSmoothingWindow" if the fps in your video is low (or increase it slightly if it is very high (but this parameter should always be an odd number.
+
+You will then be able to find the curvature data inside the pickle file generated in the result folder for your video. If you run the "4 - Analyze ZebraZoom's output" from the main menu of the GUI, the resulting pickle file saved in the "raw data" folder will also contain the curvature data for every bout for which it was calculated. You can then easily load and plot the curvature data with a script such as this one: [example script](
+https://github.com/oliviermirat/ZebraZoom/blob/master/readAndAnalyzeZZoutputWithPython/loadAndPlotCurvature.py).
+
+
+## Parameters
+
+You can further adjust the parameters inside the configuration file:
+
+- "perBoutOutput" (default value is 0): must be set to 1 to calculate the curvature
+
+- "nbTailPoints" (default value is 10): number of points along the tail to interpolate and to then calculate the curvature
+
+- "curvatureMedianFilterSmoothingWindow" (default value is 3): window of the median filter applied on the curvature
+
+- "smoothTailHeadEmbeded" (default value, -1): if set to a value different than -1, a smoothing condition will be applied to the tail interpolation. "nbTailPoints" or 2x"nbTailPoints" can often be a good value for this parameter, but trial and error is often needed to decide what the ideal value should be. This parameter is used as the parameter "s" of the [splprep scipy function](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.splprep.html).
+
+- "smoothTailHeadEmbededNbOfIterations" (default value, 1): number of times the smoothing spline is applied to on the points along the tail.
+
+- it is highly recommended to add the parameters: "createPandasDataFrameOfParameters": 1, "videoFPS": fpsInYourVideo, "videoPixelSize": pixelSizeInYourVideo, inside your configuration file in order for the pickle data to be saved in the result folder and for the curvature data to be stored inside that pickle file.
+
+- the parameters "saveCurvaturePlots", "saveTailAngleGraph", "saveSubVideo", "saveCurvatureData" (all at 0 by default), if set to 1, will respectively create inside a "perBoutOutput" folder (inside the result folder): a curvature plot for each bout, a tail angle graph for each bout, a sub video for each bout, and a file containing the raw curvature data.
 
 - "perBoutOutputYaxis": you can specify the range of the y axis of the tail angle plot with this parameter. For example choosing the value [-100, 100] will create a tail angle plot axis going from -100 to 100. When no value is set for this parameter (by default), the range of the y axis will be automatically chosen by matplotlib.
 
-- "nbTailPoints": number of points tracked along the tail (default value is 10)
 
-- "curvatureMedianFilterSmoothingWindow": 2d median filter applied on the curvature plot (the default value, 0, will lead to no median filter being applied)
+## Algorithm used to calculate the curvature
 
-- "smoothTailHeadEmbeded": Warning: you should most likely keep this parameter to its default value, -1. Indeed, choosing another value (higher than 0) will lead to a smoothing of the points along the tail of the animal: from experience, we have observed that such smoothing can lead to inaccurate curvature values.
-
-- "nbPointsToIgnoreAtCurvatureBeginning" and "nbPointsToIgnoreAtCurvatureEnd" represents the number of points to NOT plot / ignore when plotting the curvature (starting from respectively the rostral and caudal ends of the tail) (default values for both of these parameters is 0). The parameter "nbPointsToIgnoreAtCurvatureBeginning" can be useful when the tracking is too noisy close to the base of the tail for "good" curvature values to be calculated. 
-
-- "nbPointsToIgnoreAtCurvatureEnd" could be useful in similar circumstances.
-
-As an example, you can calculate the curvature of the two example videos provided with ZebraZoom ([headEmbeddedZebrafishLarva.avi](https://drive.google.com/file/d/1ERVQZvTzBD69jUEjBOTA9BvH4gOdwC7N/view) and [4wellsZebrafishLarvaeEscapeResponses.avi](https://drive.google.com/file/d/1y00yli9XbcJlzFSbJgnVAM9yDvCWNCb2/view)) with the two configuration files initially provided, just by adding a few parameters to these initial configuration files:
-
-For headEmbeddedZebrafishLarva.avi you can use the configuration provided ([headEmbeddedZebrafishLarva.json](https://github.com/oliviermirat/ZebraZoom/blob/master/zebrazoom/configuration/headEmbeddedZebrafishLarva.json)) by adding the two parameters "perBoutOutput": 1 and "nbTailPoints": 20 to it.
-
-For 4wellsZebrafishLarvaeEscapeResponses.avi, you can use the configuration file provided ([4wellsZebrafishLarvaeEscapeResponses.json](https://github.com/oliviermirat/ZebraZoom/blob/master/zebrazoom/configuration/4wellsZebrafishLarvaeEscapeResponses.json)) by adding the two parameters "perBoutOutput": 1 and "nbPointsToIgnoreAtCurvatureBeginning": 1
-
-(if needed, you can launch ZebraZoom [through the command line](../tracking/launchingTracking#launching-the-tracking-through-the-command-line) in order to easily overwrite/add those two parameters to the configuration file initially provided)
-                        
+The curvature is being calculated using the method described in this [Wikipedia page](https://en.wikipedia.org/wiki/Curvature#In_terms_of_a_general_parametrization) (see the section "In terms of a general parametrization") in this [section of the ZebraZoom code](https://github.com/oliviermirat/ZebraZoom/blob/master/zebrazoom/code/dataPostProcessing/perBoutOutput.py).
