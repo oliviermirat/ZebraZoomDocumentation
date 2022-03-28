@@ -35,6 +35,8 @@ You can further adjust the parameters inside the configuration file:
 
 - the parameters "saveCurvaturePlots", "saveTailAngleGraph", "saveSubVideo", "saveCurvatureData" (all at 0 by default), if set to 1, will respectively create inside a "perBoutOutput" folder (inside the result folder): a curvature plot for each bout, a tail angle graph for each bout, a sub video for each bout, and a file containing the raw curvature data.
 
+- "colorMapCurvature" (default value, 'BrBG'): colormap used to plot the curvature, colormap choices can be seen [here in the 'Diverging' paragraph](https://matplotlib.org/3.5.1/tutorials/colors/colormaps.html)
+
 - "perBoutOutputYaxis": you can specify the range of the y axis of the tail angle plot with this parameter. For example choosing the value [-100, 100] will create a tail angle plot axis going from -100 to 100. When no value is set for this parameter (by default), the range of the y axis will be automatically chosen by matplotlib.
 
 
