@@ -11,10 +11,10 @@ The contrast between the tail and the background can sometimes be low for head-e
 ## Adding black segments on artefacts
 
 If artefacts are present on your video, you can try manually adding to your configuration file:
-"addBlackLineToImg_Width": "replaceByWidthOfBlackSegmentsToAdd"
+"addBlackLineToImg_Width": replaceByWidthOfBlackSegmentsToAdd (with replaceByWidthOfBlackSegmentsToAdd being a positive number strictly above 0)
 this will allow you to manually add black segments on the video (for example on artefacts). When using this method, ZebraZoom will ask you to click on the two extremities of each black segments to add to every image of the video. At the moment, this method will only work for "white fish over black background".
 
-In the output result folder, you will then find a file named parametersToAddToConfigFileForBlackLine.json. If you want the black segments to be set at the exact same positions for future videos that you would like to track, you can then remove the parameter "addBlackLineToImg_Width": "replaceByWidthOfBlackSegmentsToAdd" from your original configuration file and copy and paste the parameters present inside the parametersToAddToConfigFileForBlackLine.json file into your original configuration file. With that newly created configuration file, you won't need to manually specify black segments positions at the beginning of the tracking procedure and the black segments will be set at the same positions as previously.
+In the output result folder, you will then find a file named parametersToAddToConfigFileForBlackLine.json. If you want the black segments to be set at the exact same positions for future videos that you would like to track, you can then remove the parameter "addBlackLineToImg_Width": replaceByWidthOfBlackSegmentsToAdd (with replaceByWidthOfBlackSegmentsToAdd being a positive number strictly above 0) from your original configuration file and copy and paste the parameters present inside the parametersToAddToConfigFileForBlackLine.json file into your original configuration file. With that newly created configuration file, you won't need to manually specify black segments positions at the beginning of the tracking procedure and the black segments will be set at the same positions as previously.
 
 ## Choosing the max angle between subsequent points over the entire tail
 
