@@ -59,7 +59,7 @@ First create on your local computer a configuration file as you normally would f
 
 ### Step 2: Testing ZebraZoom on your server:
 
-*You only need to do this the first time to launch ZebraZoom on your cluster!*
+*You only need to do this one time to launch ZebraZoom on your cluster!*
 
 Log on to your server (from [GitBash](https://git-scm.com/downloads), or a similar system), with:
 
@@ -106,7 +106,7 @@ You can then test ZebraZoom on your server by typing, into the first GitBash (in
 python -m zebrazoom ./ 4wellsZebrafishLarvaeEscapeResponses avi 4wellsZebrafishLarvaeEscapeResponses.json
 ```
 
-The first two lines printed by that command will indicate the folder in which the tracking results are saved. Once the tracking is done, open an anaconda prompt on your local computer and type:
+The first line printed by that command will indicate the folder in which the tracking results are saved. Once the tracking is done, open an anaconda prompt on your local computer and type:
 
 ```
 python -m zebrazoom selectZZoutput
@@ -125,7 +125,7 @@ This will be important in the next steps as it will allow you to quickly access 
 
 ![alt text for screen readers](https://zebrazoom.org/img/inQuickAccess.png)
 
-**Important:** Similarly you should also set in your "Pin to quick access" the folder on the server in which you arrive when you type *ssh username@nameOfServer* and the root folder on the server in which your videos are saved.
+**Important:** Similarly you should also set in your "Pin to quick access" the folder on the server in which you arrive when you type *ssh username@nameOfServer* and the folders (or root folder) on the server in which your videos are saved.
 
 ### Step 4: Pre-calculating the ROIs/wells on which to run the tracking:
 
@@ -155,6 +155,8 @@ Then click on *Run ZebraZoom's Tracking on several videos*, then click on *Run Z
 
 This process will create three files in the folder in which you typed *python -m zebrazoom* which will be needed for the next step.
 
+**Important:** please remember that **all the videos you want to analyze must have a different name** even if they are in different sub-folders. It will be much more difficult to visualize tracking results and to analyze behavior without following that convention.
+
 ### Step 6: Launching the tracking on the server with the sbatch command:
 
 First you will need to transfer the three files previously created onto the server. You can do that simply by using the file explorer in windows: this will be much simpler to do if you "Pin to quick access" the folder on the server in which you arrive after typing *ssh username@nameOfServer* as suggested above. Alternatively, you could also type the three following lines in GitBash:
@@ -180,7 +182,7 @@ ls
 Then launch the tracking with:
 
 ```
-sbatch launch.sh
+sbatch launchZZ.sh
 ```
 
 You can then follow the progress of the tracking using the commands:
@@ -201,7 +203,7 @@ which will print the progress of each process running (you will need to replace 
 
 Once ZebraZoom has finished running on all videos, the command *squeueme* shouldn't print anything (this is a good way of knowing when all tracking processes have finished running.
 
-*Important note:*
+**Important note:**
 
 Before launching the *sbatch launch.sh* command, make sure that you haven't previously typed any of these two lines in the server:
 
@@ -210,8 +212,12 @@ module load python/3.8
 source activate zebrazoom
 ```
 
-after initially opening the connection with *ssh username@nameOfServer*. If you have, then exit your current session by typing *exit* into the terminal, and then reconnect into the terminal with *ssh username@nameOfServer*
+after initially opening the connection with *ssh username@nameOfServer*. If you have, exit your current session by typing *exit* into the terminal, and then reconnect into the terminal with *ssh username@nameOfServer*
 
+**Important note 2:**
+
+If after launching sbatch, you realize that you launched the wrong script or that something is wrong with the script you launched, you can stop the processes that you just launched by:
+First typing *squeueme* in your terminal to find the job ids of the processes you launched, and then by cancelling every process with the command *scancel jobid* (you will need to replace jobid by the ids you found with squeueme).
 
 ### Step 7: Visualizing/verifying tracking results:
 
@@ -240,3 +246,5 @@ From the main menu of the GUI, click on *Analyze ZebraZoom's outputs* and follow
 ### Optional last step
 
 Once you are familiar with the previous steps, you may want to launch the tracking on videos contained in several different folders all at the same time. To do this, you will need to run the *Step 5: Creating the files necessary to launch the tracking:* on each of the different folders while changing the names of the three files produced after each folder to avoid overwriting the files produced. Once this step as been applied on all folders, merge all lines contained in the commands.txt files into only one file, make the file launch.sh point to that new commands.txt file, and in the file launch.sh, adjust #SBATCH --array=1-X for X to be equal to the number of videos contained in the commands.txt file.
+
+Importantly, please remember that **all videos must have a different name even if they are in different folders**: without following that convention, it will be much more difficult to visualize tracking results and to run the data analysis.

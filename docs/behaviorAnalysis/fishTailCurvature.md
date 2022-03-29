@@ -8,8 +8,14 @@ sidebar_position: 6
 ## Summary
 
 To calculate the curvature for every bouts, you can add, for instance, the following parameters inside your configuration file:
+
+To get "a lot" of smoothing:
           
 "perBoutOutput": 1, "nbTailPoints": 30, "curvatureMedianFilterSmoothingWindow": 7, "smoothTailHeadEmbeded": 60, "smoothTailHeadEmbededNbOfIterations": 3, "createPandasDataFrameOfParameters": 1, "videoFPS": fpsInYourVideo, "videoPixelSize": pixelSizeInYourVideo
+
+To get "a small amount" of smoothing:
+          
+"perBoutOutput": 1, "nbTailPoints": 30, "curvatureMedianFilterSmoothingWindow": 7, "smoothTailHeadEmbeded": -1, "smoothTailHeadEmbededNbOfIterations": 1, "createPandasDataFrameOfParameters": 1, "videoFPS": fpsInYourVideo, "videoPixelSize": pixelSizeInYourVideo
 
 You can decrease slightly "curvatureMedianFilterSmoothingWindow" if the fps in your video is low (or increase it slightly if it is very high (but this parameter should always be an odd number.
 
