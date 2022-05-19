@@ -39,7 +39,7 @@ If and only if you are going to use Anaconda extensively to install packages oth
 To do this, first create an environment:
 
 ```
-conda create -n zebrazoom
+conda create -n zebrazoom python=3.8
 ```
 
 Then activate the newly created environment:
@@ -49,6 +49,10 @@ conda activate zebrazoom
 ```
 
 Then install zebrazoom as explained in the previous section ("General method").
+
+```
+pip install zebrazoom
+```
 
 To start ZebraZoom, you can now open the Anaconda Prompt or a terminal and type:
 
