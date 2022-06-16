@@ -6,6 +6,16 @@ sidebar_position: 2
 
 ## Installation
 
+### With installer (recommended method)
+
+[Download Windows Installer](https://github.com/oliviermirat/ZebraZoom/releases/latest/download/ZebraZoom-Windows.exe) : [More information for Windows here](/docs/gettingStarted/installation#on-windows)
+
+[Download Mac Installer](https://github.com/oliviermirat/ZebraZoom/releases/latest/download/ZebraZoom-macOS.zip) : [More information for Mac here](/docs/gettingStarted/installation#on-mac)
+
+[Download Linux Installer](https://github.com/oliviermirat/ZebraZoom/releases/latest/download/ZebraZoom-Linux.zip) : [More information for Linux here](/docs/gettingStarted/installation#on-linux)
+
+### With Ananconda
+
 Start by installing [Anaconda](https://www.anaconda.com/products/individual) on your computer. Then install ZebraZoom by typing, in your anaconda prompt:
 
 ```
