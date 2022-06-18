@@ -84,7 +84,7 @@ First tutorial video: no config file optimization required: <<< freelySwim <<< h
 
 Second tutorial video: optimizing the initially created config file is required: <<< freelySwim <<< headEmbedded
 
-<iframe width="840" height="472" src="https://www.youtube.com/embed/K2AgiZFKNuU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe> <<< freelySwim
+<iframe width="840" height="472" src="https://www.youtube.com/embed/6iI6sH9egQ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe> <<< freelySwim
 <iframe width="840" height="472" src="https://www.youtube.com/embed/KZZKCwKgYDw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe> <<< headEmbedded
 
 
