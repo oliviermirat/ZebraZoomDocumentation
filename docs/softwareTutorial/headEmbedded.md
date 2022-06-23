@@ -64,6 +64,8 @@ If you click on "Optimize configuration file", you will be directed to the page 
 ![alt text](./static/img/optimizeConfigPageHeadEmbedded.png)
 
 
+### Tutorial videos
+
 Below we show two tutorial videos of how a configuration file is created: the first tutorial video is a situation where no config file optimization is required, whereas the second tutorial video shows an example where optimizing the configuration file initially created is required.
 
 First tutorial video: no config file optimization required:
