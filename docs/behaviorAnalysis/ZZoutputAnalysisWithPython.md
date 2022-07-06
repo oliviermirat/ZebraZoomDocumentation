@@ -7,14 +7,21 @@ sidebar_position: 4
 A result folder will be created for each video you launch ZebraZoom on inside the ZZoutput folder.
 
 If you have launch ZebraZoom on a video named “video”, you can load the results in Python with the following code:
+```
 import json
 with open('ZZoutput/video/results_video.txt') as f:
   supstruct = json.load(f)
+```
 
-Then, you can see the data for the well numWell, the animal numAnimal, and the bout numBout using the following command: supstruct['wellPoissMouv'][numWell][numAnimal][numBout]
+Then, you can see the data for the well numWell, the animal numAnimal, and the bout numBout using the following command: 
+```
+supstruct['wellPoissMouv'][numWell][numAnimal][numBout]
+```
 
 For example, if you want to look at the data for the first bout of the "animal 1" in the third well, you can type:
+```
 supstruct['wellPoissMouv'][2][0][0]
+```
 
 You can then, for example, plot the tail angle with the following command:
 
