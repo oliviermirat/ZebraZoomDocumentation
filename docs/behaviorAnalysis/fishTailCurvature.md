@@ -45,6 +45,8 @@ You can further adjust the parameters inside the configuration file:
 
 - "perBoutOutputYaxis": you can specify the range of the y axis of the tail angle plot with this parameter. For example choosing the value [-100, 100] will create a tail angle plot axis going from -100 to 100. When no value is set for this parameter (by default), the range of the y axis will be automatically chosen by matplotlib.
 
+- "alternativeCurvatureCalculation": set to 1 if you want the curvature to be calculated in an alternative way (using successive angles to calculate the second derivative), you might also need to set "saveCurvaturePlots" to 1 to see the results of this alternative curvature calculation method
+
 
 ## Algorithm used to calculate the curvature
 
