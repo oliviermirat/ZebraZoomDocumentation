@@ -35,3 +35,9 @@ python -m zebrazoom pathToVideo nameOfVideo extensionOfVideo pathToConfigFile na
 ```
 
 (it's possible to add as many or as few parameters as needed)
+
+By default, GUI features are not available from the command line, since GUI isn't available on some machines (e.g. clusters, remote machines). Tracking which requires further user input (e.g. ROI or tail coordinates selection) will not work unless the required inputs were already specified or --use-gui is used. For example:
+
+```
+python -m zebrazoom pathToVideo nameOfVideo extensionOfVideo pathToConfigFile nameOfParameter1 newParameter1Value nameOfParameter2 newParameter2Value nameOfParameter3 newParameter3Value --use-gui
+```
