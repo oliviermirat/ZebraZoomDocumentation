@@ -42,8 +42,8 @@ For example, assuming the key used in `register_tracking_method` was "zebrazoom.
 ### Choosing a wells detection methods
 An already implemented wells detection method should be chosen and re-used in custom tracking implementations. The list of well detection methods available can be seen here:
 
-#### No well detection,
-To skip well detection, put "noWellDetection": 1 in your configuration file.
+#### Whole video
+To skip well detection and run tracking on the whole video, put "noWellDetection": 1 in your configuration file.
 
 #### Grid system
 To use grid system, put "groupOfMultipleSameSizeAndShapeEquallySpacedWells": 1 in your configuration file. Additionally, you also have to specify the number of wells per row ("nbWellsPerRows") and number of rows in the grid("nbRowsOfWells"). Grid will be specified by the user at runtime.
