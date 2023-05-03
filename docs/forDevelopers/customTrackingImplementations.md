@@ -42,6 +42,17 @@ For example, assuming the key used in `register_tracking_method` was "zebrazoom.
 ### Choosing a wells detection methods
 An already implemented wells detection method should be chosen and re-used in custom tracking implementations. The list of well detection methods available can be seen here:
 
+#### No well detection,
+To skip well detection, put "noWellDetection": 1 in your configuration file.
+
+#### Grid system
+To use grid system, put "groupOfMultipleSameSizeAndShapeEquallySpacedWells": 1 in your configuration file. Additionally, you also have to specify the number of wells per row ("nbWellsPerRows") and number of rows in the grid("nbRowsOfWells"). Grid will be specified by the user at runtime.
+
+#### Multiple regions of interest chosen at runtime
+To use multiple regions of if interest chosen at runtime, put "multipleROIsDefinedDuringExecution": 1 in your config file. Additionally, you also have to specify the number of regions of interets ("nbWells"). These will be selected by the user at runtime.
+
+#### One region of interest fixed in the configuration file
+To use one region of interest fixed in the configuration file, put "oneWellManuallyChosenTopLeft": (x, y) and "oneWellManuallyChosenBottomRight": (x, y) where x and y are top left/bottom right coordinates of the region of interest.
 
 For instance, in the example [configuration file](https://github.com/oliviermirat/ZebraZoom/tree/master/zebrazoom/configuration/customTrackingImplementationExample.json), four parameters have been added:
 ```
