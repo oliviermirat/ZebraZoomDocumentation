@@ -2,34 +2,69 @@
 sidebar_position: 1
 ---
 
-# Custom tracking implementations
+# Adding your own tracking method to ZebraZoom: Step by step guide
 
-## Step 1: Your own folder in ZebraZoom repository
-Unless it already exists, please create a folder for yourself or your organization in [custom tracking implementations folder](https://github.com/oliviermirat/ZebraZoom/tree/master/zebrazoom/code/tracking/customTrackingImplementations). Please keep all of your code inside this folder.
+## Step 1: Create a folder for your code
+First, create a sub-folder in which you will put all your code, inside the folder ["custom tracking implementations"](https://github.com/oliviermirat/ZebraZoom/tree/master/zebrazoom/code/tracking/customTrackingImplementations). Please keep all of your code inside that sub-folder that you will create, do not edit or add files in any other folders.
 
 ## Step 2: Implement your tracking method
-In one of the files inside your folder from step 1, create a new class which inherits from `zebrazoom.code.tracking.BaseTrackingMethod` and implement `__init__` and `run` methods and does all the necessary calculations. More information about the API and the expected output format can be found in the [in-code documentation](https://github.com/oliviermirat/ZebraZoom/blob/master/zebrazoom/code/tracking/_base.py). Validation video and the results file will be generated automatically by ZebraZoom based on the points calculated in your `run` method.
 
-## Step 3: Register your tracking implementation
-To register your newly implemented tracking method, call `zebrazoom.code.tracking.register_tracking_method` with a custom key which will then be used in config files to determine which tracking method to use. Please note that this key has to be unique, so it's highly recommended to include the name of your folder in it (e.g. `register_tracking_method('myfolder.mytrackingmethod', MyCustomClass)`).
+### Example of custom tracking implementation
+Here is an example of a [custom tracking implementation](https://github.com/oliviermirat/ZebraZoom/tree/master/zebrazoom/code/tracking/customTrackingImplementations/examples) and of an associated [configuration file](https://github.com/oliviermirat/ZebraZoom/tree/master/zebrazoom/configuration/customTrackingImplementationExample.json) that illustrates the points outlined below.
 
-## Step 4 (optional): Implement GUI functionalities
-If you'd like to implement some GUI functionalities, please repeat the first step in [custom tracking implementations GUI folder](https://github.com/oliviermirat/ZebraZoom/tree/master/zebrazoom/code/GUI/tracking/customTrackingImplementations) and implement a new class which inherits from your tracking class and implements GUI functionalities. `register_tracking_method` should then be called again using the same key as your non-GUI class.
+### Inherit `zebrazoom.code.tracking.BaseTrackingMethod`
+In a file inside the folder you created in the previous step, create a new class which inherits from `zebrazoom.code.tracking.BaseTrackingMethod` and implement `__init__` and `run` methods and does all the necessary calculations for tracking and movement/bout detection. 
 
-## Step 5: Create config file
-In order to adjust values of various parameters used in calculations, ZebraZoom relies on config files which are formatted as a single json dict of arbitrary key-value pairs. These pairs are then passed on to your tracking implementation inside the hyperparameters argument, where you can access them. To run tracking using the custom tracking implementation, your config file must contain "trackingImplementation" key, which specifies which tracking implementation to use. In addition to this one, feel free to specify as many parameters as you require for your tracking implementation.
+More information about the API and the expected output format can be found in the [in-code documentation](https://github.com/oliviermirat/ZebraZoom/blob/master/zebrazoom/code/tracking/_base.py). 
 
-For example, assuming the key used in `register_tracking_method` was "myfolder.mytrackingimplementation", your config file could look something like this:
+Validation video and the results file will be generated automatically by ZebraZoom based on the points calculated in your `run` method.
+
+### Register your tracking implementation
+To register your newly implemented tracking method, call `zebrazoom.code.tracking.register_tracking_method` with a custom key which will then be used in config files to determine which tracking method to use. Please note that this key has to be unique, so it's highly recommended to include the name of your folder in it (e.g. `register_tracking_method('myfolder.mytrackingmethod', MyCustomClass)`). 
+
+In [custom tracking implementation](https://github.com/oliviermirat/ZebraZoom/tree/master/zebrazoom/code/tracking/customTrackingImplementations/examples), this is for instance done in the last line of file, with: 
+```
+zebrazoom.code.tracking.register_tracking_method('zebrazoom.example', ExampleTrackingMethod)
+```
+
+### Create configuration files
+In order to adjust values of various parameters used in calculations, ZebraZoom relies on configuration files which are formatted as a single json dict of arbitrary key-value pairs. These pairs are then passed on to your tracking implementation inside the hyperparameters argument, where you can access them. To run tracking using the custom tracking implementation, your config file must contain "trackingImplementation" key, which specifies which tracking implementation to use. In addition to this key, you can specify as many parameters as required for your custom tracking implementation.
+
+For example, assuming the key used in `register_tracking_method` was "zebrazoom.example", your config file could look something like:
 ```
 {
-"trackingImplementation": "myfolder.mytrackingmethod",
+"trackingImplementation": "zebrazoom.example",
 "myparameter": "myvalue",
 "myparameter2": 1
 }
 ```
 
-## Step 6: Merge changes into ZebraZoom repository
+### Choosing a wells detection methods
+An already implemented wells detection method should be chosen and re-used in custom tracking implementations. The list of well detection methods available can be seen here:
+
+
+For instance, in the example [configuration file](https://github.com/oliviermirat/ZebraZoom/tree/master/zebrazoom/configuration/customTrackingImplementationExample.json), four parameters have been added:
+```
+  "groupOfMultipleSameSizeAndShapeEquallySpacedWells": 1,
+  "nbWells": 4, 
+  "nbRowsOfWells": 1, 
+  "nbWellsPerRows": 4, 
+```
+
+
+### Debugging tip 1: Frame visualization
+While working on your new tracking algorithm, it may be useful to visualize frames/images for debugging purposes. This can be done with:
+```
+import zebrazoom.code.util as util
+util.showFrame(frame, title="write title here")
+```
+
+### Debugging tip 2: Lauching tracking through command line with --use-gui:
+While working on your custom tracking implementation, it should be easier to launch ZebraZoom through the [command line](/docs/tracking/launchingTracking#launching-the-tracking-through-the-command-line). If you are using any GUI feature, please make sure to add `--use-gui` at the end of the command.
+
+### Advanced (and optional): Implement GUI functionalities
+If you'd like to implement some GUI functionalities, please repeat the first step in [custom tracking implementations GUI folder](https://github.com/oliviermirat/ZebraZoom/tree/master/zebrazoom/code/GUI/tracking/customTrackingImplementations) and implement a new class which inherits from your tracking class and implements GUI functionalities. `register_tracking_method` should then be called again using the same key as your non-GUI class.
+
+## Step 3: Merge changes into ZebraZoom repository
 Once your own tracking implementation works and you are ready to share it with the public, please create a new [pull request](https://github.com/oliviermirat/ZebraZoom/pulls). Pushing directly to master branch is not allowed.
 
-## Examples
-For a simple example of a custom tracking implementation, please take a look at [examples](https://github.com/oliviermirat/ZebraZoom/tree/master/zebrazoom/code/tracking/customTrackingImplementations/examples).
