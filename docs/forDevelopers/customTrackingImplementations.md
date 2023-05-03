@@ -69,6 +69,7 @@ While working on your new tracking algorithm, it may be useful to visualize fram
 import zebrazoom.code.util as util
 util.showFrame(frame, title="write title here")
 ```
+Please note that `showFrame` uses GUI, and it's okay to add this temporarily for debugging while developing, but if you intend to keep this in your code after submitting it to ZebraZoom, please put it in the GUI part of the code.
 
 ### Debugging tip 2: Lauching tracking through command line with --use-gui:
 While working on your custom tracking implementation, it should be easier to launch ZebraZoom through the [command line](/docs/tracking/launchingTracking#launching-the-tracking-through-the-command-line). If you are using any GUI feature, please make sure to add `--use-gui` at the end of the command.
