@@ -72,6 +72,8 @@ To use one region of interest fixed in the configuration file, put "oneWellManua
   "oneWellManuallyChosenBottomRight": [340, 320],
 ```
 
+### Bends (local min/max of tail angle) detection
+If your custom tracking implementation is calculating the tail angle of the animal then if you want the bends (local minimum and maximum of the tail angle) to be calculated, then you must set the parameter ```"windowForLocalBendMinMaxFind"``` in your configuration file to the window used (over frames) for calculation of these bends. [More information here.](/docs/configurationFile/advanced/angleSmoothBoutsAndBendsDetection#parameters-related-to-the-detection-of-bends-local-minimums-and-maximums-of-the-tail-angle)
 
 ### Debugging tip 1: Frame visualization
 While working on your new tracking algorithm, it may be useful to visualize frames/images for debugging purposes. This can be done with:
