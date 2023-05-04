@@ -66,10 +66,10 @@ To use multiple regions of interest chosen at runtime, put "multipleROIsDefinedD
 ```
 
 #### One region of interest fixed in the configuration file
-To use one region of interest fixed in the configuration file, put "oneWellManuallyChosenTopLeft": (x, y) and "oneWellManuallyChosenBottomRight": (x, y) where x and y are top left/bottom right coordinates of the region of interest. For example, these parameters could be added to the configuration file:
+To use one region of interest fixed in the configuration file, put "oneWellManuallyChosenTopLeft": [x, y] and "oneWellManuallyChosenBottomRight": [x, y] where x and y are top left/bottom right coordinates of the region of interest. For example, these parameters could be added to the configuration file:
 ```
-  "oneWellManuallyChosenTopLeft": (100, 110),
-  "oneWellManuallyChosenBottomRight": (340, 320), 
+  "oneWellManuallyChosenTopLeft": [100, 110],
+  "oneWellManuallyChosenBottomRight": [340, 320],
 ```
 
 
