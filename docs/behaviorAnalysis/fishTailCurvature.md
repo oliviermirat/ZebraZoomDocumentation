@@ -5,25 +5,51 @@ sidebar_position: 6
 # Calculating fish tail curvature
 
 
-## Summary
+## First step
 
 To calculate the curvature for every bouts, you can add, for instance, the following parameters inside your configuration file:
 
-To get "a lot" of smoothing:
-          
-"perBoutOutput": 1, "nbTailPoints": 30, "curvatureMedianFilterSmoothingWindow": 7, "smoothTailHeadEmbeded": 60, "smoothTailHeadEmbededNbOfIterations": 3, "createPandasDataFrameOfParameters": 1, "videoFPS": fpsInYourVideo, "videoPixelSize": pixelSizeInYourVideo
+```
+"perBoutOutput": 1, 
+"nbTailPoints": 30, 
+"curvatureMedianFilterSmoothingWindow": 7, 
+"smoothTailHeadEmbeded": -1, 
+"smoothTailHeadEmbededNbOfIterations": 1, 
+"createPandasDataFrameOfParameters": 1, 
+"videoFPS": fpsInYourVideo, 
+"videoPixelSize": pixelSizeInYourVideo
+```
 
-To get "a small amount" of smoothing:
-          
-"perBoutOutput": 1, "nbTailPoints": 30, "curvatureMedianFilterSmoothingWindow": 7, "smoothTailHeadEmbeded": -1, "smoothTailHeadEmbededNbOfIterations": 1, "createPandasDataFrameOfParameters": 1, "videoFPS": fpsInYourVideo, "videoPixelSize": pixelSizeInYourVideo
+To get more smoothing of the tail you could also change, for instance:
 
-You can decrease slightly "curvatureMedianFilterSmoothingWindow" if the fps in your video is low (or increase it slightly if it is very high (but this parameter should always be an odd number.
+```
+"smoothTailHeadEmbeded": 60, "smoothTailHeadEmbededNbOfIterations": 3
+```
 
-You will then be able to find the curvature data inside the pickle file generated in the result folder for your video. If you run the "4 - Analyze ZebraZoom's output" from the main menu of the GUI, the resulting pickle file saved in the "raw data" folder will also contain the curvature data for every bout for which it was calculated. You can then easily load and plot the curvature data with a script such as this one: [example script](
+You can also decrease slightly `"curvatureMedianFilterSmoothingWindow"` if the fps in your video is low (or increase it slightly if it is very high) but this parameter should always be an odd number.
+
+Finally, if you add `"saveCurvaturePlots" : 1` in your configuration file, a curvature plot will be generated in the result folder for each bout.
+
+## Saving and retrieving raw curvature data
+
+If you put `"createPandasDataFrameOfParameters": 1` in your configuration (as suggested above), a pickle file will be generated in the result folder for your video. This pickle file can be used to load and plot the curvature data with a script such as this one: 
+
+[Example Script](
 https://github.com/oliviermirat/ZebraZoom/blob/master/readAndAnalyzeZZoutputWithPython/loadAndPlotCurvature.py).
 
+Alternatively, if you want one file per bout containing the curvature data to be saved in the result folder, you can set `"saveCurvatureData" : 1` in your configuration file.
 
-## Parameters
+## Standardizing curvature values and x axis length across a dataset
+By default, the curvature scales and the x axis total lenght (in time) will change from one curvature graph to the next. To remediate this potential problem, you can:
+
+Set `maxCurvatureValues` to a value different than 0 in your configuration file: this will fix the maximum curvature values displayed to the value chosen.
+
+Set `curvatureXaxisNbFrames` to a value different than 0 in your configuration file: this will set the x axis (time) to the fixed number of frame chosen (the x axis is still converted to mm if you set `"videoFPS"` as suggested above).
+
+When reloading and plotting the curvature with the previously mentionned [Example Script](
+https://github.com/oliviermirat/ZebraZoom/blob/master/readAndAnalyzeZZoutputWithPython/loadAndPlotCurvature.py), you can adjust these same values at the beginning of the script (`maxCurvatureValues` and `curvatureXaxisNbFrames`) (at the moment, you also have to manually set `tailLenghtInPixels` (we are currently working on resolving this issue)).
+
+## Complete list of curvature related parameters
 
 You can further adjust the parameters inside the configuration file:
 
@@ -47,6 +73,7 @@ You can further adjust the parameters inside the configuration file:
 
 - "alternativeCurvatureCalculation": set to 1 if you want the curvature to be calculated in an alternative way (using successive angles to calculate the second derivative), you might also need to set "saveCurvaturePlots" to 1 to see the results of this alternative curvature calculation method
 
+- "maxCurvatureValues" and "curvatureXaxisNbFrames": allow to standardize curvature values and x axis length across a dataset as explained above
 
 ## Algorithm used to calculate the curvature
 
