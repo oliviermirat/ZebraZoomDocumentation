@@ -6,6 +6,10 @@ sidebar_position: 11
 
 We make changes to ZebraZoom very frequently (often on a daily basis), but in order to avoid overwhelming readers, we only report big major updates as well as changes that could be disruptive to current users on this page.
 
+## May 10 2023: Code Refactoring: Base files and tracking files
+
+A major refactoring of all base files (responsible for initial branching of ZebraZoom (GUI opening, tracking launch, etc...)) and of files related to the tracking algorithms has just been released in version 1.33.18.
+
 ## September 7 2022 : Changing default tracking algorithm for freely swimming fish from old method to new method in configuration file creation pipeline
 
 Following positive feedback received, the new tracking algorithm for freely-swimming fish introduced on August 18th 2022 is now selected by default in the configuration file creation pipeline (originally, the old tracking algorithm was selected by default). The old tracking algorithm is still easily accessible from the configuration file creation pipeline simply by switching radio buttons.
