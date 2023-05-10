@@ -61,6 +61,10 @@ When reloading and plotting the curvature with the previously mentioned example 
 https://github.com/oliviermirat/ZebraZoom/blob/master/readAndAnalyzeZZoutputWithPython/loadAndPlotCurvature.py) and [Example Script ("per frame" data saving)](
 https://github.com/oliviermirat/ZebraZoom/blob/master/readAndAnalyzeZZoutputWithPython/loadAndPlotCurvatureFromAllFramesData.py), you can adjust these same values at the beginning of the script (`maxCurvatureValues` and `curvatureXaxisNbFrames`).
 
+### Curvature graphs units
+
+As long as `"videoFPS"` and `"videoPixelSize"` are specified (as suggested above), curvature graphs will be plotted in seconds and mm. The y axis (in mm) will correspond to the length of the tail for the first frame of the bout.
+
 ## Complete list of curvature related parameters
 
 You can further adjust the parameters inside the configuration file:
