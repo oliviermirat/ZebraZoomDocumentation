@@ -65,7 +65,7 @@ firstFrame, lastFrame = dataAPI.getFirstAndLastFrame(videoName)
 
 ### getDataPerBout
 
-You can retrieve any data for each bout detected by ZebraZoom using the function below.
+You can retrieve any data for each bout detected by ZebraZoom using the function below. Available parameters are: HeadPos, Heading, TailAngle, TailLength, TailPosX, TailPosY, curvature and, if it was calculated during tracking, tailAngleHeatmap.
 
 ```
 videoName = "headEmbeddedZebrafishLarva"
@@ -79,7 +79,7 @@ headingData = dataAPI.getCurvaturePerBout(videoName, numWell, numAnimal, numBout
 
 ### getDataPerTimeInterval
 
-You can retrieve any data for any time interval (specified in seconds) using the function below.
+You can retrieve any data for any time interval (specified in seconds) using the function below. Available parameters are: HeadPos, Heading, TailAngle, TailLength, TailPosX, TailPosY, curvature and, if it was calculated during tracking, tailAngleHeatmap.
 
 ```
 data = dataAPI.getDataPerTimeInterval(videoName, numWell, numAnimal, startTimeInSeconds, endTimeInSeconds, parameterName)
