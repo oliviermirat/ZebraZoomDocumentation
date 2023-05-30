@@ -18,9 +18,9 @@ videoName = "headEmbeddedZebrafishLarva"
 dataAPI.plotCurvatureYaxisApproximate(curvatureValues, xTimeValues, yDistanceAlongTheTail, videoFPS, videoPixelSize)
 ```
 
-### If you installed ZebraZoom with an Installer
+### If you installed ZebraZoom with an Installer or if your ZebraZoom output file is not in the ZZoutput folder
 
-If you want to use the ZebraZoom data API to retrieve data from output data files generated with a version of ZebraZoom installed with ["Installers"](/docs/gettingStarted/installation#using-installers-recommended-method), you will need to specify the full path to your video, for example:
+If you want to use the ZebraZoom data API to retrieve data from output data files generated with a version of ZebraZoom installed with ["Installers"](/docs/gettingStarted/installation#using-installers-recommended-method) or if you moved the outputs of ZebraZoom out of the ZZoutput folder, you will need to specify the full path to your video, for example:
 
 ```
 videoName = "C:/Users/yourName/Desktop/ZebraZoom/zebrazoom/ZZoutput/headEmbeddedZebrafishLarva"
@@ -65,7 +65,7 @@ firstFrame, lastFrame = dataAPI.getFirstAndLastFrame(videoName)
 
 ### getDataPerBout
 
-You can retrieve any data for each bout detected by ZebraZoom using the function below. Available parameters are: HeadPos, Heading, TailAngle, TailLength, TailPosX, TailPosY, curvature and, if it was calculated during tracking, tailAngleHeatmap.
+You can retrieve any data for each bout detected by ZebraZoom using the function below. Available parameters are: HeadPos, Heading, TailAngle, TailLength, TailPosX, TailPosY.
 
 ```
 videoName = "headEmbeddedZebrafishLarva"
@@ -79,7 +79,7 @@ headingData = dataAPI.getDataPerBout(videoName, numWell, numAnimal, numBout, par
 
 ### getDataPerTimeInterval
 
-You can retrieve any data for any time interval (specified in seconds) using the function below. Available parameters are: HeadPos, Heading, TailAngle, TailLength, TailPosX, TailPosY, curvature and, if it was calculated during tracking, tailAngleHeatmap.
+You can retrieve any data for any time interval (specified in seconds) using the function below. Available parameters are: HeadPos, Heading, TailAngle, TailLength, TailPosX and TailPosY.
 
 ```
 data = dataAPI.getDataPerTimeInterval(videoName, numWell, numAnimal, startTimeInSeconds, endTimeInSeconds, parameterName)
@@ -158,6 +158,11 @@ The function below will plot the curvature while taking into account the "exact"
 dataAPI.plotCurvatureYaxisExact(curvatureValues, xTimeValues, yDistanceAlongTheTail, videoFPS, videoPixelSize)
 ```
 
+Additional optional parameters to this function are as follows:
+- maxCurvatureValues : maximum curvature values plotted. Default is 0.05.
+- xAxisLengthInSeconds : Lenght of the x axis in seconds. Default is 1 second.
+- yAxisLengthInMm : Lenght of the y axis in millimeters. Default is 6 mm.
+
 ### plotCurvatureYaxisApproximate
 
 The function below will plot the curvature while considering an approximate value on the y axis.
@@ -165,5 +170,11 @@ The function below will plot the curvature while considering an approximate valu
 ```
 dataAPI.plotCurvatureYaxisApproximate(curvatureValues, xTimeValues, yDistanceAlongTheTail, videoFPS, videoPixelSize)
 ```
+
+Additional optional parameters to this function are as follows:
+- cmap : colormap used to plot the curvature. Default value is: 'BrBG'. Other options include: 'PiYG', 'PRGn', 'BrBG', 'PuOr', 'RdGy', 'RdBu', 'RdYlBu', 'RdYlGn', 'Spectral', 'coolwarm', 'bwr', 'seismic'
+- maxCurvatureValues : maximum curvature values plotted. Default is 0.05.
+- xAxisLengthInSeconds : Lenght of the x axis in seconds. Default is 1 second.
+- yAxisLengthInMm : Lenght of the y axis in millimeters. Default is 6 mm.
 
 ## More data API functions are coming! (the data API is still in "beta")
