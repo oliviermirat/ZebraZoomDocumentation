@@ -74,7 +74,7 @@ numAnimal = 0
 numBout = 0
 parameterName = 'Heading'
 
-headingData = dataAPI.getCurvaturePerBout(videoName, numWell, numAnimal, numBout, parameterName)
+headingData = dataAPI.getDataPerBout(videoName, numWell, numAnimal, numBout, parameterName)
 ```
 
 ### getDataPerTimeInterval
