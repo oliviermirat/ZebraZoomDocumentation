@@ -55,6 +55,58 @@ If you specified the fps and pixel size in your video, you can retrieve them dir
 [videoFPS, videoPixelSize] = dataAPI.getFPSandPixelSize(videoName)
 ```
 
+### getFirstAndLastFrame
+
+You can retrieve the first and the last frame used to run the tracking using the function below.
+
+```
+firstFrame, lastFrame = dataAPI.getFirstAndLastFrame(videoName)
+```
+
+### getDataPerBout
+
+You can retrieve any data for each bout detected by ZebraZoom using the function below.
+
+```
+videoName = "headEmbeddedZebrafishLarva"
+numWell   = 0
+numAnimal = 0
+numBout = 0
+parameterName = 'Heading'
+
+headingData = dataAPI.getCurvaturePerBout(videoName, numWell, numAnimal, numBout, parameterName)
+```
+
+### getDataPerTimeInterval
+
+You can retrieve any data for any time interval (specified in seconds) using the function below.
+
+```
+data = dataAPI.getDataPerTimeInterval(videoName, numWell, numAnimal, startTimeInSeconds, endTimeInSeconds, parameterName)
+```
+
+### listAllBouts
+
+You can retrieve a list of start and end timings for all bouts using the function below.
+
+```
+boutTimings = dataAPI.listAllBouts(videoName, numWell, numAnimal)
+```
+
+By default, frame numbers are returned. To obtain values in seconds, `seconds=True` should be used:
+
+```
+boutTimings = dataAPI.listAllBouts(videoName, numWell, numAnimal, seconds=True)
+```
+
+### createDistanceBetweenFramesExcelFile
+
+You can use this function to generate an excel file containing the distance travelled between each frame. The excel file will be stored in the same folder where the provided h5 file is located.
+
+```
+dataAPI.createDistanceBetweenFramesExcelFile(videoName)
+```
+
 ## Curvature related functions
 
 An example of how to use the data api to retrieve and plot the curvature can be found here [Example script](https://github.com/oliviermirat/ZebraZoom/blob/master/readAndAnalyzeZZoutputWithPython/exampleDataAPI_curvature.py)
