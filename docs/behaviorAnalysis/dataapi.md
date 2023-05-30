@@ -85,6 +85,14 @@ You can retrieve any data for any time interval (specified in seconds) using the
 data = dataAPI.getDataPerTimeInterval(videoName, numWell, numAnimal, startTimeInSeconds, endTimeInSeconds, parameterName)
 ```
 
+### getKinematicParametersPerBout
+
+You can retrieve kinematic parameters for each bout using the function below. It returns a dictionary mapping parameter names to values.
+
+```
+kinematicParameters = dataAPI.getKinematicParametersPerBout(videoName, numWell, numAnimal, numBout)
+```
+
 ### listAllBouts
 
 You can retrieve a list of start and end timings for all bouts using the function below.
@@ -101,7 +109,7 @@ boutTimings = dataAPI.listAllBouts(videoName, numWell, numAnimal, seconds=True)
 
 ### createDistanceBetweenFramesExcelFile
 
-You can use this function to generate an excel file containing the distance travelled between each frame. The excel file will be stored in the same folder where the provided h5 file is located.
+You can use this function to generate an excel file containing the x and y coordinates and the distance travelled between each frame. The excel file will be stored in the same folder where the provided h5 file is located.
 
 ```
 dataAPI.createDistanceBetweenFramesExcelFile(videoName)
