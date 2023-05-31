@@ -177,4 +177,35 @@ Additional optional parameters to this function are as follows:
 - xAxisLengthInSeconds : Lenght of the x axis in seconds. Default is 1 second.
 - yAxisLengthInMm : Lenght of the y axis in millimeters. Default is 6 mm.
 
+## Tail angle heatmap related functions
+
+### getTailAngleHeatmapPerBout
+
+You can retrieve the tail angle heatmap for each bout detected by ZebraZoom using the function below. If the tail angle heatmap was not calculated during the tracking process, it will automatically be calculated by the dataAPI and stored inside the hdf5 format.
+
+```
+videoName = "headEmbeddedZebrafishLarva"
+numWell   = 0
+numAnimal = 0
+numBout = 0
+
+tailAngleHeatmapValues = dataAPI.getTailAngleHeatmapPerBout(videoName, numWell, numAnimal, numBout)
+```
+
+### getTailAngleHeatmapPerTimeInterval
+
+You can retrieve the tail angle heatmap for any time interval (specified in seconds) using the function below. If the tail angle heatmap was not calculated during the tracking process, it will automatically be calculated by the dataAPI and stored inside the hdf5 format.
+
+```
+tailAngleHeatmapValues = dataAPI.getTailAngleHeatmapPerTimeInterval(videoName, numWell, numAnimal, startTimeInSeconds, endTimeInSeconds)
+```
+
+### plotTailAngleHeatmap
+
+The function below will plot the tail angle heatmap.
+
+```
+dataAPI.plotTailAngleHeatmap(tailAngleHeatmapValues)
+```
+
 ## More data API functions are coming! (the data API is still in "beta")
