@@ -87,7 +87,7 @@ data = dataAPI.getDataPerTimeInterval(videoName, numWell, numAnimal, startTimeIn
 
 ### getKinematicParametersPerBout
 
-You can retrieve kinematic parameters for each bout using the function below. It returns a dictionary mapping parameter names to values.
+You can retrieve kinematic parameters for each bout using the function below. It returns a dictionary mapping parameter names to values. If kinematic parameters were not calculated during the tracking process, they will automatically be calculated by the dataAPI and stored inside the hdf5 format.
 
 ```
 kinematicParameters = dataAPI.getKinematicParametersPerBout(videoName, numWell, numAnimal, numBout)
