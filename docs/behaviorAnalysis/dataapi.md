@@ -172,7 +172,7 @@ dataAPI.plotCurvatureYaxisApproximate(curvatureValues, xTimeValues, yDistanceAlo
 ```
 
 Additional optional parameters to this function are as follows:
-- cmap : colormap used to plot the curvature. Default value is: 'BrBG'. Other options include: 'PiYG', 'PRGn', 'BrBG', 'PuOr', 'RdGy', 'RdBu', 'RdYlBu', 'RdYlGn', 'Spectral', 'coolwarm', 'bwr', 'seismic'
+- cmap : colormap used to plot the curvature. Default value is: 'coolwarm'. Other options include: 'PiYG', 'PRGn', 'BrBG', 'PuOr', 'RdGy', 'RdBu', 'RdYlBu', 'RdYlGn', 'Spectral', 'coolwarm', 'bwr', 'seismic'
 - maxCurvatureValues : maximum curvature values plotted. Default is 0.05.
 - xAxisLengthInSeconds : Lenght of the x axis in seconds. Default is 1 second.
 - yAxisLengthInMm : Lenght of the y axis in millimeters. Default is 6 mm.
