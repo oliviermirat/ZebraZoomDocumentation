@@ -189,15 +189,15 @@ numWell   = 0
 numAnimal = 0
 numBout = 0
 
-tailAngleHeatmapValues = dataAPI.getTailAngleHeatmapPerBout(videoName, numWell, numAnimal, numBout)
+tailAngleHeatmapValues, startFrame, tailLength = dataAPI.getTailAngleHeatmapPerBout(videoName, numWell, numAnimal, numBout)
 ```
 
 ### getTailAngleHeatmapPerTimeInterval
 
-You can retrieve the tail angle heatmap for any time interval (specified in seconds) using the function below. If the tail angle heatmap was not calculated during the tracking process, it will automatically be calculated by the dataAPI and stored inside the hdf5 format.
+You can retrieve the tail angle heatmap for any time interval (specified in seconds) using the function below. If the tail angle heatmap was not calculated during the tracking process, it will automatically be calculated by the dataAPI and stored inside the hdf5 format. Tail angle heatmap is calculated only for bouts, values for non-bout frames will be nan.
 
 ```
-tailAngleHeatmapValues = dataAPI.getTailAngleHeatmapPerTimeInterval(videoName, numWell, numAnimal, startTimeInSeconds, endTimeInSeconds)
+tailAngleHeatmapValues, startFrame, tailLength = dataAPI.getTailAngleHeatmapPerTimeInterval(videoName, numWell, numAnimal, startTimeInSeconds, endTimeInSeconds)
 ```
 
 ### plotTailAngleHeatmap
@@ -205,7 +205,9 @@ tailAngleHeatmapValues = dataAPI.getTailAngleHeatmapPerTimeInterval(videoName, n
 The function below will plot the tail angle heatmap.
 
 ```
-dataAPI.plotTailAngleHeatmap(tailAngleHeatmapValues)
+videoFPS, videoPixelSize = dataAPI.getFPSandPixelSize(videoName)
+tailAngleHeatmapValues, startFrame, tailLength = dataAPI.getTailAngleHeatmapPerBout(videoName, numWell, numAnimal, numBout)
+dataAPI.plotTailAngleHeatmap(tailAngleHeatmapValues, startFrame, tailLength, videoFPS, videoPixelSize)
 ```
 
 ## More data API functions are coming! (the data API is still in "beta")
