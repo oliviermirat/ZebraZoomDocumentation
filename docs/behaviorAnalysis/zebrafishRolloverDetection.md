@@ -23,13 +23,13 @@ You must first use ZebraZoom's GUI to manually classify frames into "Rolling", "
 
 ## Step 3: Choose parameters and test the network:
 
-In order to test the accuracy of the rollover detection model, you must use the script [leaveOneOutVideoTest.py](https://github.com/oliviermirat/ZZDeepRollover/blob/main/leaveOneOutVideoTest.py): you will need to adjust some variables at the beginning of that script and potentially try different combination of values until you find a good set of parameters. The variable "videos" is an array that must contain the name of videos for which you manually classified frames.
+In order to test the accuracy of the rollover detection model, you must use the script [leaveOneOutVideoTest.py](https://github.com/oliviermirat/ZZDeepRollover/blob/main/leaveOneOutVideoTest.py): you will need to adjust some variables at the beginning of that script and potentially try different combinations of values until you find a good set of parameters. The variable "videos" is an array that must contain the name of videos for which you manually classified frames.
 
 The script leaveOneOutVideoTest.py will loop through all the videos learning the model on all but one video and testing on the video left out.
 
 ## Step 4: Train the network:
 
-Once the model has been tested using the steps described in the previous section, you can now learn the final model on all the videos for which a manual classification of frames exist using the script [trainModel.py](https://github.com/oliviermirat/ZZDeepRollover/blob/main/trainModel.py) (use the best combination of variables found in the previous step).
+Once the model has been tested using the steps described in the previous section, you can now learn the final model using all the videos for which a manual classification of frames exist using the script [trainModel.py](https://github.com/oliviermirat/ZZDeepRollover/blob/main/trainModel.py) (one randomly selected video will automatically be left out for testing purposes). Use the best combination of variables found in the previous step while training the network.
 
 ## Step 5: Use the network to detect rollovers:
 
