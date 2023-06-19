@@ -19,7 +19,7 @@ For those interested, [ZZDeepRollover source code can be seen here](https://gith
 
 ## Step 2: Manual classification on a few videos:
 
-You must first use ZebraZoom's GUI to manually classify frames into "Rolling", "Normal" and "InBetween" using ZebraZoom's GUI. For this, click on "Visualize Tracking Results" from the main menu of the GUI (third row: "View Tracking Results"). Then choose a video where rolling behavior is occurring on the left hand side, then click on "View bout's video" for each well of the video and classify every frame of the video into "Rolling", "Normal" and "InBetween".
+You must first use ZebraZoom's GUI to manually classify frames into "Rolling", "Normal" and "InBetween" using ZebraZoom's GUI. For this, click on "Zebrafish rollover analysis" from the main menu of the GUI (from the fourth row: "Analyze Behavior"), then click on "Manually classify video frames into rollover vs no-rollover". Then choose a video where rolling behavior is occurring on the left hand side, then manually classify every frame of every well of the video into "Rolling", "Normal" and "InBetween".
 
 ## Step 3: Choose parameters and test the network:
 
@@ -35,7 +35,7 @@ Once the model has been tested using the steps described in the previous section
 
 Once a network has been trained, create a configuration file similar [to this one](https://github.com/oliviermirat/ZZDeepRollover) in which you will specify a path to the previously trained model and to the previously chosen parameters.
 
-Then, from the main menu of the GUI, second row ("Run Tracking"), click on "Run ZebraZoom's Tracking on several videos", then click on "Show advanced options", then on "Rollover Detection". Then choose all the tracking results on which you want to run the rollover detection as well as the previously created configuration file, then click on "Run Tracking".
+Then, from the main menu of the GUI, click on "Zebrafish rollover analysis" from the main menu of the GUI (from the fourth row: "Analyze Behavior"), and then click on "Launch rollover detection on multiple videos". Then choose all the tracking results on which you want to run the rollover detection as well as the previously created configuration file, then click on "Run Tracking".
 
 Once the rollover detection is done, you can check the accuracy of the rollover detection by going into the ZZoutput folder (accessible from the fourth row of the main menu of the GUI ("Analyze Behavior"): "Open ZebraZoom's output folder") and checking the validation videos created into each result sub-folder for which the rollover detection was performed:
 - rolloverValidationAllFrames.avi: will show all frames
@@ -49,7 +49,7 @@ On all four videos:
 
 ## Step 6: Analyze results:
 
-From the main menu of the GUI, fourth row ("Analyze Behavior"), you can click on "Analyze ZebraZoom's output". After choosing the videos you want to include in your analysis, choose "Compare populations with kinematic parameters". In the last tab of the kinematic parameters visualization ("All kinematic parameters"), you will be able to find four different parameters characterizing rollover detection:
+From the main menu of the GUI, click on "Zebrafish rollover analysis" from the main menu of the GUI (from the fourth row: "Analyze Behavior"), and then click on "Compare zebrafish populations based on rollover detection". After choosing the videos you want to include in your analysis, choose "Compare populations with kinematic parameters". In the last tab of the kinematic parameters visualization ("All kinematic parameters"), you will be able to find four different parameters characterizing rollover detection:
 - numberOfRolloverFrames : number of frames detected as rollover in the bout
 - rolloverProbabilitiesSum : sum of all probabilities of a frame being a rollover for all frames of the bout
 - numberOfRolloverFramesNormalized : numberOfRolloverFrames / number of frames in the bout
