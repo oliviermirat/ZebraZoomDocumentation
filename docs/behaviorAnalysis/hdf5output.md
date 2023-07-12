@@ -1,20 +1,18 @@
 ---
-sidebar_position: 9
+sidebar_position: 4
 ---
 
-# Hdf5 output format (beta version)
+# ZebraZoom's new output data format: hdf5 file
 
-## Parameter to add in configuration file (will no longer be necessary in the near future)
+## Configuration file
 
-As the hdf5 file format is still in beta mode, it is currently required to add the following parameter in your configuration file in order to get the hdf5 file as an output:
+If you created a configuration file with the version of ZebraZoom 1.34.00 or above, the parameter:
 
 ```
 "storeH5": 1
 ```
 
-(in the near future, an hdf5 file will be produced by default and adding this parameter will no longer be required)
-
-The hdf5 file is saved in the ZZoutput folder.
+should have been placed in any configuration file you've created (unless you've specifically asked to use the legacy .json format on the last page of the configuration file creation pipeline), in which case the output of ZebraZoom's tracking will be an hdf5 file.
 
 ## General structure of the hdf5 file
 
@@ -78,7 +76,7 @@ print(f["dataForWell0/dataForAnimal0/dataPerFrame/HeadPos"][:])
 
 ## Reading an hdf5 output file through the data API (recommended method)
 
-The most recommended way of reading this hdf5 file however is to use the [ZebraZoom Data API](/docs/behaviorAnalysis/dataapi) (still in beta mode). This data API allows to easily retrieve data from the hdf5 with code as simple as:
+The most recommended way of reading this hdf5 file however is to use the [ZebraZoom Data API](/docs/behaviorAnalysis/dataapi). This data API allows to easily retrieve data from the hdf5 with code as simple as:
 
 ```
 import zebrazoom.dataAPI as dataAPI

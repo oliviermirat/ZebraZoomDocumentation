@@ -1,9 +1,8 @@
 ---
-sidebar_position: 10
+sidebar_position: 5
 ---
 
-# ZebraZoom data API (beta version)
-
+# ZebraZoom data API
 ## Getting started: Example scripts
 
 ### If you installed ZebraZoom with Anaconda

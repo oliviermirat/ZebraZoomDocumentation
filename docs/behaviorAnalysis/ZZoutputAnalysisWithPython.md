@@ -1,10 +1,10 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 ---
 
-# Further analyzing ZebraZoom's output with Python
+# ZebraZoom's legacy output data format: json file
 
-A result folder will be created for each video you launch ZebraZoom on inside the ZZoutput folder.
+When using ZebraZoom's legacy output data, a result folder will be created for each video you launch ZebraZoom on inside the ZZoutput folder.
 
 If you have launch ZebraZoom on a video named “video”, you can load the results in Python with the following code:
 ```

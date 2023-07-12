@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 8
 ---
 
 # Optimizing speed of final analysis: pre-calculating parameters during tracking execution
