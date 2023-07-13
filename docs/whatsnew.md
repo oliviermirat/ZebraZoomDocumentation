@@ -6,7 +6,7 @@ sidebar_position: 11
 
 We make changes to ZebraZoom very frequently (often on a daily basis), but in order to avoid overwhelming readers, we only report big major updates as well as changes that could be disruptive to current users on this page.
 
-## July 12 2023: Full integration of new hdf5 tracking output format
+## July 13 2023: Full integration of new hdf5 tracking output format
 
 Major refactoring of the code to allow full integration of the new hdf5 tracking output format, starting from version 1.34.00.
 
