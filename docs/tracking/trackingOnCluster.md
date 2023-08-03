@@ -106,13 +106,9 @@ You can then test ZebraZoom on your server by typing, into the first GitBash (in
 python -m zebrazoom ./ 4wellsZebrafishLarvaeEscapeResponses avi 4wellsZebrafishLarvaeEscapeResponses.json
 ```
 
-The first line printed by that command will indicate the folder in which the tracking results are saved. Once the tracking is done, open an anaconda prompt on your local computer and type:
+The first line printed by that command will indicate the folder in which the tracking results are saved.
 
-```
-python -m zebrazoom selectZZoutput
-```
-
-When prompted by ZebraZoom to choose the ZZoutput folder, choose the folder previously indicated when launching the tracking on the server (where the tracking results are saved). You will then be able, from the ZebraZoom's GUI that you just launched on your local computer, to see the results of the tracking you launched on the server, by clicking on *Visualize ZebraZoom's output* under the section *3 - Verify tracking results* of the GUI.
+Once the tracking is done, from the main menu of ZebraZoom (on your local computer), click on the button *Select output folder* (bottom left). When prompted by ZebraZoom to choose the ZZoutput folder, choose the folder previously indicated when launching the tracking on the server (where the tracking results are saved). You will then be able, from the ZebraZoom's GUI that you just launched on your local computer, to see the results of the tracking you launched on the server, by clicking on *Visualize tracking results* under the section *View tracking results* of the main menu of the GUI.
 
 
 ### Step 3: Pin to quick access the location of the ZZoutput folder on your server:
@@ -127,33 +123,21 @@ This will be important in the next steps as it will allow you to quickly access 
 
 **Important:** Similarly you should also set in your "Pin to quick access" the folder on the server in which you arrive when you type *ssh username@nameOfServer* and the folders (or root folder) on the server in which your videos are saved.
 
-### Step 4: Pre-calculating the ROIs/wells on which to run the tracking:
+### Step 4: Pre-calculating the ROIs/wells and/or the tail tip coordinates for head-embedded:
 
-*This step is only necessary if you are using the 'grid system' or the 'multiple ROIs chosen at runtime' to identify wells!*
+*This step is only necessary if you are using the 'grid system' or the 'multiple ROIs chosen at runtime' to identify wells or if you are tracking head-embedded fish!*
 
-From your local computer, type:
+From the main menu of ZebraZoom (on your local computer), click on the button *Select output folder* (bottom left). ZebraZoom will prompt you to choose the location of the ZZoutput folder in which the tracking results are saved: choose the location of the ZZoutput folder on your server (the "quick access" system shown in previous steps will make this process easier).
 
-```
-python -m zebrazoom selectZZoutput
-```
+Then, from the GUI of ZebraZoom click on *Run ZebraZoom's Tracking on several videos*, then on *Show advanced options* then on the of three buttons relevant to your use case ("head-embedded tail tip", "ROI selection" or "Grid selection"), then choose the videos (on the server) that you want to analyze, then choose the configuration file (on your local computer) that you created during the first step, then click on *Run Tracking* (green button on the right) then on *Launch ZebraZoom on your video(s)* and follow the instructions given by ZebraZoom.
 
-ZebraZoom will prompt you to choose the location of the ZZoutput folder in which the tracking results are saved: choose the location of the ZZoutput folder on your server (the "quick access" system shown in previous steps will make this process easier).
-
-Then, from the GUI of ZebraZoom click on *Run ZebraZoom's Tracking on several videos*, then on *'Grid System' well detection coordinates pre-selection*, then choose the folder (on the server) in which the videos you want to analyze are, then choose the configuration file (on your local computer) that you created during the first step, then click on *Launch ZebraZoom on your video(s)* and follow the instructions given by ZebraZoom.
-
-This will pre-calculate the ROIs/wells locations and save them on the server in preparation for tracking.
+This will pre-calculate the ROIs/grid/tail tip coordinates for the first frame and save them on the server in preparation for tracking.
 
 ### Step 5: Creating the files necessary to launch the tracking:
 
-From your local computer, type:
+From the main menu of ZebraZoom (on your local computer), click on *Run ZebraZoom's Tracking on several videos*, then click on *Run ZebraZoom on several videos*, then click on *Show advanced option* then check the box *Expert use*, then click on *Choose videos* and choose the videos (on the server) that you want to analyze, then choose the configuration file (on your local computer) you created during the first step, then click on *Run Tracking* then on *Launch ZebraZoom on your video(s)* and follow the instructions given by ZebraZoom.
 
-```
-python -m zebrazoom
-```
-
-Then click on *Run ZebraZoom's Tracking on several videos*, then click on *Run ZebraZoom on entire folder*, then check the box *Expert use*, then click on *Choose folder* and choose the folder (on the server) in which the videos you want to analyze are, then choose the configuration file (on your local computer) you created during the first step, then click on *Launch ZebraZoom on your video(s)* and follow the instructions given by ZebraZoom.
-
-This process will create three files in the folder in which you typed *python -m zebrazoom* which will be needed for the next step.
+This process will create three files in the folder in which ZebraZoom is installed which will be needed for the next step.
 
 **Important:** please remember that **all the videos you want to analyze must have a different name** even if they are in different sub-folders. It will be much more difficult to visualize tracking results and to analyze behavior without following that convention.
 
@@ -221,11 +205,7 @@ First typing *squeueme* in your terminal to find the job ids of the processes yo
 
 ### Step 7: Visualizing/verifying tracking results:
 
-From your local computer, type:
-
-```
-python -m zebrazoom selectZZoutput
-```
+From the main menu of ZebraZoom (on your local computer), click on the button *Select output folder* (bottom left). 
 
 ZebraZoom will prompt you to choose the location of the ZZoutput folder in which the tracking results are saved: choose the location of the ZZoutput folder on your server (the "quick access" system shown in previous steps will make this process easier).
 
@@ -233,18 +213,8 @@ From the main menu of the GUI, click on *Visualize ZebraZoom's output*, from tha
 
 ### Step 8: Analyzing behavior:
 
-From your local computer, type:
-
-```
-python -m zebrazoom selectZZoutput
-```
+From the main menu of ZebraZoom (on your local computer), click on the button *Select output folder* (bottom left). 
 
 ZebraZoom will prompt you to choose the location of the ZZoutput folder in which the tracking results are saved: choose the location of the ZZoutput folder on your server (the "quick access" system shown in previous steps will make this process easier).
 
 From the main menu of the GUI, click on *Analyze ZebraZoom's outputs* and follow the instructions to analyze your videos.
-
-### Optional last step
-
-Once you are familiar with the previous steps, you may want to launch the tracking on videos contained in several different folders all at the same time. To do this, you will need to run the *Step 5: Creating the files necessary to launch the tracking:* on each of the different folders while changing the names of the three files produced after each folder to avoid overwriting the files produced. Once this step as been applied on all folders, merge all lines contained in the commands.txt files into only one file, make the file launch.sh point to that new commands.txt file, and in the file launch.sh, adjust #SBATCH --array=1-X for X to be equal to the number of videos contained in the commands.txt file.
-
-Importantly, please remember that **all videos must have a different name even if they are in different folders**: without following that convention, it will be much more difficult to visualize tracking results and to run the data analysis.
