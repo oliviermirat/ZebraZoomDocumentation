@@ -33,7 +33,7 @@ Once the model has been tested using the steps described in the previous section
 
 ## Step 5: Use the network to detect rollovers:
 
-Once a network has been trained, create a configuration file similar [to this one](https://github.com/oliviermirat/ZZDeepRollover) in which you will specify a path to the previously trained model and to the previously chosen parameters.
+Once a network has been trained, create a configuration file similar [to this one](https://github.com/oliviermirat/ZebraZoom/blob/master/zebrazoom/rolloverDetectionConfiguration/rolloverDetection.json) in which you will specify a path to the previously trained model and to the previously chosen parameters.
 
 Then, from the main menu of the GUI, click on "Zebrafish rollover analysis" from the main menu of the GUI (from the fourth row: "Analyze Behavior"), and then click on "Launch rollover detection on multiple videos". Then choose all the tracking results on which you want to run the rollover detection as well as the previously created configuration file, then click on "Run Tracking".
 
