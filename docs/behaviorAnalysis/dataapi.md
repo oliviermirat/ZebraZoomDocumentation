@@ -36,6 +36,14 @@ However, when specifying the file on which you want one of the functions below t
 
 All data api functions can be found in this folder: [view code](https://github.com/oliviermirat/ZebraZoom/tree/master/zebrazoom/dataAPI).
 
+### getConfigurationFileUsed
+
+You can retrieve the configuration file used to run the tracking using the function specified below:
+
+```
+config = dataAPI.getConfigurationFileUsed(videoName)
+```
+
 ### setFPSandPixelSize
 
 If you did not specify the fps and pixel size of your video in the configuration file before launching the tracking, you can specify it in the hdf5 output format using the data api. This is required to use some of the other data api functions (such as the ones related to plotting the curvature for example).
