@@ -1,10 +1,10 @@
 ---
-sidebar_position: 7
+sidebar_position: 8
 ---
 
-# Generate an excel file containing the distance travelled between each frame
+# Generate an excel file containing the (x, y) coordinates and distance travelled between each frame
 
-This can be done with the command:
+This can be done for results in the json format with the command:
 
 ```
 python -m zebrazoom createDistanceBetweenFramesExcelFile fps pixelSize
