@@ -217,4 +217,24 @@ tailAngleHeatmapValues, startFrame, tailLength = dataAPI.getTailAngleHeatmapPerB
 dataAPI.plotTailAngleHeatmap(tailAngleHeatmapValues, startFrame, tailLength, videoFPS, videoPixelSize)
 ```
 
+## Additional functions for specific use cases
+
+### Functions for processing single-frame video results
+
+#### plotSingleFrameTrackingPoints
+
+This function can be used to retrieve the frame with tracking points plotted on it.
+
+```
+frame = dataAPI.plotSingleFrameTrackingPoints(videoName)
+```
+
+#### getSingleFrameTrackingAndCurvatureForFolder
+
+This function will generate the frame with tracking points amd the curvature plot for each results file in the given folder and store them inside the 'output' subfolder.
+
+```
+dataAPI.getSingleFrameTrackingAndCurvatureForFolder(pathToFolder)
+```
+
 ## More data API functions are coming! (the data API is still in "beta")
