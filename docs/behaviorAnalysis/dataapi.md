@@ -231,10 +231,26 @@ frame = dataAPI.plotSingleFrameTrackingPoints(videoName)
 
 #### getSingleFrameTrackingAndCurvatureForFolder
 
-This function will generate the frame with tracking points amd the curvature plot for each results file in the given folder and store them inside the 'output' subfolder.
+This function will generate the frame with tracking points and the curvature plot for each results file in the given folder and store them inside the 'output' subfolder.
 
 ```
 dataAPI.getSingleFrameTrackingAndCurvatureForFolder(pathToFolder)
+```
+
+#### getSingleFrameDistanceToAxis
+
+This function will return the distance from each tracking point to the main axis.
+
+```
+dataAPI.getSingleFrameDistanceToAxis(videoName)
+```
+
+#### getSingleFrameTrackingAndDistanceToAxisForFolder
+
+This function will generate the frame with tracking points and the main axis and an excel file with tail point coordinates and distances to the main axis for each results file in the given folder and store them inside the 'output' subfolder.
+
+```
+dataAPI.getSingleFrameTrackingAndDistanceToAxisForFolder(pathToFolder)
 ```
 
 ## More data API functions are coming! (the data API is still in "beta")
