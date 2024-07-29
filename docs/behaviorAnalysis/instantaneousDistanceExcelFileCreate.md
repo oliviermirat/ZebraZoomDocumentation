@@ -19,3 +19,11 @@ Where:
 As suggested above, you can thus try this function simply by typing "*python -m zebrazoom createDistanceBetweenFramesExcelFile*" (the fps and pixelSize will just automatically be set to the value 1).
 
 Once you launch this command, you will be prompted to choose the result folder corresponding to the video for which you want the excel file containing the distance travelled between each frame to be generated. This excel file will be generated inside the result folder you specified.
+
+## Adding instantaneous speed, heading, and delta heading
+
+The instantaneous speed, heading, and delta heading can be added to the previous results with the command:
+
+```
+python -m zebrazoom createDistanceSpeedHeadingDeltaHeadingExcelFile fps pixelSize
+```
