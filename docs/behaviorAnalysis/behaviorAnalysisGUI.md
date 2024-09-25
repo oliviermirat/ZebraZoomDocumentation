@@ -42,9 +42,15 @@ The following parameters are calculated for each bout of a video:
 
 - maxTailAngleAmplitude: maximum value of the tail angle for all frames included in the bout (no bends taken into accont here)
 
-- Absolute Yaw (deg): width of the range of values taken by the head direction axis over that bout (in absolute value)
+- Absolute Yaw (deg): difference in the head direction axis between the start and end of the bout (in absolute value)
 
-- Signed Yaw (deg): width of the range of values taken by the head direction axis over that bout (directional)
+- Signed Yaw (deg): difference in the head direction axis between the start and end of the bout (directional)
+
+- Absolute Yaw (deg) (from heading): difference in the head direction axis between the start and end of the bout (in absolute value) (calculated from heading)
+
+- Signed Yaw (deg) (from heading): difference in the head direction axis between the start and end of the bout (directional) (calculated from heading)
+
+- headingRangeValues: width of the range of values taken by the head direction axis over that bout (calculated from heading)
 
 - TBA#1 timing (s): time at which the first bend occured
 

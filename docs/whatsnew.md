@@ -4,7 +4,11 @@ sidebar_position: 11
 
 # What's new?
 
-We make changes to ZebraZoom very frequently (often on a daily basis), but in order to avoid overwhelming readers, we only report big major updates as well as changes that could be disruptive to current users on this page.
+We make changes to ZebraZoom very frequently (often on a daily basis), but in order to avoid overwhelming readers, we only report big major updates as well as changes that could be disruptive to current users on this page. Changelogs for each version can be found on [GitHub](https://github.com/oliviermirat/ZebraZoom/releases).
+
+## September 25 2024: Signed Yaw (deg) and Absolute Yaw (deg) kinematic parameters calculation modified
+
+When calculating these parameters, a point at the third of the length of the tail will be used. This was previously hardcoded to 6, regardless of the number of tracking points.
 
 ## July 13 2023: Full integration of new hdf5 tracking output format
 
