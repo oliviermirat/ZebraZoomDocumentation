@@ -61,7 +61,7 @@ Download the videos below and try ZebraZoom with those videos using the correspo
 
 ## General Method
 
-Download and install [Anaconda](https://www.anaconda.com/products/individual) (scroll down to the bottom of that web page or click on the "Download button" on the top of that page). You may skip this step if you already have python 3.6 or higher installed on your computer.
+Download and install [Anaconda](https://www.anaconda.com/products/individual) (scroll down to the bottom of that web page or click on the "Download button" on the top of that page). You may skip this step if you already have python 3.9 or higher installed on your computer.
 
 Restart your computer.
 
@@ -89,12 +89,12 @@ python -m zebrazoom
 
 ## Further recommendations for installation with the general method
 
-If and only if you are going to use Anaconda extensively to install packages other than ZebraZoom, it can be a good idea to create an Anaconda Environment just for ZebraZoom.
+If you are going to use Anaconda extensively to install packages other than ZebraZoom or you ran into some issues installing with the general method, it can be a good idea to create a clean Anaconda Environment just for ZebraZoom.
 
 To do this, first create an environment:
 
 ```
-conda create -n zebrazoom python=3.8
+conda create -n zebrazoom python --no-default-packages
 ```
 
 Then activate the newly created environment:
@@ -117,3 +117,17 @@ python -m zebrazoom
 ```
 
 [Read this for more information on Anaconda environments](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
+
+
+## Troubleshooting installation with the general method
+
+If `pip install zebrazoom` fails, please ensure you are using a recent version of Python and try updating some base packages before installing zebrazoom by running the following:
+
+```
+python -m pip install pip setuptools wheel --upgrade
+pip install zebrazoom
+```
+
+If that doesn't help, please try installing ZebraZoom using a clean new Python installation, by downloading and installing the latest version of [Anaconda] (https://www.anaconda.com/download) or [the official Python interpreter] (https://www.python.org/downloads/) and following the steps outlined in "General method" section.
+
+If you are using Anaconda, you could also try using a clean environment, as suggested in the previous section ("Further recommendations for installation with the general method").
