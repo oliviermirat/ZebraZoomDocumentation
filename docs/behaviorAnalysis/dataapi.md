@@ -70,6 +70,22 @@ You can retrieve the first and the last frame used to run the tracking using the
 firstFrame, lastFrame = dataAPI.getFirstAndLastFrame(videoName)
 ```
 
+### getNumberOfAnimalsPerWell
+
+You can retrieve the number of animals in each well using the function specified below:
+
+```
+nbAnimals = dataAPI.getNumberOfAnimalsPerWell(videoName)
+```
+
+### getNumberOfWells
+
+You can retrieve the number of wells using the function specified below:
+
+```
+nbWells = dataAPI.getNumberOfWells(videoName)
+```
+
 ### getDataPerBout
 
 You can retrieve any data for each bout detected by ZebraZoom using the function below. Available parameters are: HeadPos, Heading, TailAngle, TailLength, TailPosX, TailPosY.
