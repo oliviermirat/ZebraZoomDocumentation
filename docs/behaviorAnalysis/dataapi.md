@@ -70,6 +70,22 @@ You can retrieve the first and the last frame used to run the tracking using the
 firstFrame, lastFrame = dataAPI.getFirstAndLastFrame(videoName)
 ```
 
+### getNumberOfAnimalsPerWell
+
+You can retrieve the number of animals in each well using the function specified below:
+
+```
+nbAnimals = dataAPI.getNumberOfAnimalsPerWell(videoName)
+```
+
+### getNumberOfWells
+
+You can retrieve the number of wells using the function specified below:
+
+```
+nbWells = dataAPI.getNumberOfWells(videoName)
+```
+
 ### getDataPerBout
 
 You can retrieve any data for each bout detected by ZebraZoom using the function below. Available parameters are: HeadPos, Heading, TailAngle, TailLength, TailPosX, TailPosY.
@@ -86,7 +102,7 @@ headingData = dataAPI.getDataPerBout(videoName, numWell, numAnimal, numBout, par
 
 ### getDataPerTimeInterval
 
-You can retrieve any data for any time interval (specified in seconds) using the function below. Available parameters are: HeadPos, Heading, TailAngle, TailLength, TailPosX and TailPosY.
+You can retrieve any data for any time interval (specified in seconds) using the function below. Available parameters are: HeadPos, Heading, TailAngle, TailLength, TailPosX and TailPosY. To use the beginning or the end of the video, send `None` as `startTimeInSeconds` or `endTimeInSeconds`.
 
 ```
 data = dataAPI.getDataPerTimeInterval(videoName, numWell, numAnimal, startTimeInSeconds, endTimeInSeconds, parameterName)
@@ -143,7 +159,7 @@ numBout = 0
 
 ### getCurvaturePerTimeInterval
 
-You can retrieve the curvature for any time interval (specified in seconds) using the function below. If the curvature was not calculated during the tracking process, it will automatically be calculated by the dataAPI and stored inside the hdf5 format.
+You can retrieve the curvature for any time interval (specified in seconds) using the function below. If the curvature was not calculated during the tracking process, it will automatically be calculated by the dataAPI and stored inside the hdf5 format. To use the beginning or the end of the video, send `None` as `startTimeInSeconds` or `endTimeInSeconds`.
 
 ```
 [curvatureValues, xTimeValues, yDistanceAlongTheTail] = dataAPI.getCurvaturePerTimeInterval(videoName, numWell, numAnimal, startTimeInSeconds, endTimeInSeconds)
@@ -201,7 +217,7 @@ tailAngleHeatmapValues, startFrame, tailLength = dataAPI.getTailAngleHeatmapPerB
 
 ### getTailAngleHeatmapPerTimeInterval
 
-You can retrieve the tail angle heatmap for any time interval (specified in seconds) using the function below. If the tail angle heatmap was not calculated during the tracking process, it will automatically be calculated by the dataAPI and stored inside the hdf5 format. Tail angle heatmap is calculated only for bouts, values for non-bout frames will be nan.
+You can retrieve the tail angle heatmap for any time interval (specified in seconds) using the function below. If the tail angle heatmap was not calculated during the tracking process, it will automatically be calculated by the dataAPI and stored inside the hdf5 format. Tail angle heatmap is calculated only for bouts, values for non-bout frames will be nan. To use the beginning or the end of the video, send `None` as `startTimeInSeconds` or `endTimeInSeconds`.
 
 ```
 tailAngleHeatmapValues, startFrame, tailLength = dataAPI.getTailAngleHeatmapPerTimeInterval(videoName, numWell, numAnimal, startTimeInSeconds, endTimeInSeconds)
