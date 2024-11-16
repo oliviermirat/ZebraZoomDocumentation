@@ -94,7 +94,7 @@ If you are going to use Anaconda extensively to install packages other than Zebr
 To do this, first create an environment:
 
 ```
-conda create -n zebrazoom python --no-default-packages
+conda create -n zebrazoom python==3.12 --no-default-packages
 ```
 
 Then activate the newly created environment:
