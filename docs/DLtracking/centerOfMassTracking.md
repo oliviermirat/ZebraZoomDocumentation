@@ -64,7 +64,7 @@ Click on "Start Annotating".
 
 ![alt text](https://zebrazoom.org/img/roboflow2.png)
 
-With the cursor on your screen **(1)**, select rectangles englobing animals you'd like to track in the image. You can zoom in the image if necessary. The rectangles must absolutely englobe the full body of the animal. However, it is NOT a concern to set rectangles a bit "too large" (englobing the animal plus some extra background pixels), what's important is to avoid defining rectangles which would be "too small" (not englobing pixels belonging to the animal).
+With the cursor on your screen **(1)**, select rectangles englobing animals you'd like to track in the image. Do NOT draw anything else than rectangles (no polygons, etc...), ONLY RECTANGLES (if animals overlap each other, draw overlapping rectangles). You can zoom in the image if necessary. The rectangles must absolutely englobe the full body of the animal. However, it is NOT a concern to set rectangles a bit "too large" (englobing the animal plus some extra background pixels), what's important is to avoid defining rectangles which would be "too small" (not englobing pixels belonging to the animal).
 
 Whenever possible, try to draw rectangles around all animals in the images. However, if an image contains a large number of animals, it's perfectly fine to miss many of them.
 
@@ -163,7 +163,7 @@ In the three paths train/val/test **(1)** replace ../ by your project name (chan
 
 Don't forget to save these changes with "Ctrl+S".
 
-Then launch the fourth cell **(2)**.
+Then launch the fourth cell **(2)**. By default, the network used is set to yolo11n.pt and this is usually a good place to start. However, later on, you can also experiment with using [other networks](https://docs.ultralytics.com/models/yolo11/#performance-metrics) that may sometime offer higher accuracy but slower speed.
 
 ![alt text](https://zebrazoom.org/img/googleColab4.png)
 
