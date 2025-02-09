@@ -125,7 +125,7 @@ Finally, copy the download code, paste it on a text editor on your computer, and
 
 ## Training a deep learning based model on Google Colab
 
-First open this [Google Colab notebook](https://colab.research.google.com/gist/oliviermirat/7c4464f6650f56ee200d21699ea8b5da/zebrazoomyolov11training.ipynb)
+First open this [Google Colab notebook](https://colab.research.google.com/gist/oliviermirat/6d629f277187754e3481f0de4cb71be7/zebrazoomyolov11training.ipynb)
 
 You may need to log in to a Google account.
 
@@ -133,7 +133,7 @@ First click on "Change runtype type".
 
 ![alt text](https://zebrazoom.org/img/googleColab0.png)
 
-Then click on "T4 GPU".
+Then click on "T4 GPU" (or on any other GPU type).
 
 ![alt text](https://zebrazoom.org/img/googleColab0_2.png)
 
@@ -141,33 +141,13 @@ Then click on "Connect".
 
 ![alt text](https://zebrazoom.org/img/googleColab0_3.png)
 
-Then run the first two cells successively.
+Paste and replace the download code (that you got from the previous section) into the second cell, in order to replace all the "xxxxxxxxxxxxx" by values which will allow you to download the data on Roboflow into Google Colab.
 
-![alt text](https://zebrazoom.org/img/googleColab1.png)
+Now launch all cells of the Google Colab notebook.
 
-Click on the folder icon on the left **(1)**, the name of your project will then appear as one of the folder's name **(2)**: keep note of that project/folder name as it will be useful for the following steps.
+By default, the network used is set to yolo11n.pt and this is usually a good place to start. However, later on, you can also experiment with using [other networks](https://docs.ultralytics.com/models/yolo11/#performance-metrics) that may sometime offer higher accuracy but slower speed.
 
-In the third cell, replace "MyProject-1" **(3)** by the name of your project (that you found in **(2)**).
-
-![alt text](https://zebrazoom.org/img/googleColab1_2.png)
-
-Run the third cell **(1)**, then open the datasets folder and the folder corresponding to your project **(2)**, click and hold the file data.yaml **(3)** and drag and drop it outside of both those folders **(4)**.
-
-![alt text](https://zebrazoom.org/img/googleColab2.png)
-
-Double click on the data.yaml file **(1)** which will open it on the right **(2)**.
-
-![alt text](https://zebrazoom.org/img/googleColab3.png)
-
-In the three paths train/val/test **(1)** replace ../ by your project name (change My-Project-1 by your project name).
-
-Don't forget to save these changes with "Ctrl+S".
-
-Then launch the fourth cell **(2)**. By default, the network used is set to yolo11n.pt and this is usually a good place to start. However, later on, you can also experiment with using [other networks](https://docs.ultralytics.com/models/yolo11/#performance-metrics) that may sometime offer higher accuracy but slower speed.
-
-![alt text](https://zebrazoom.org/img/googleColab4.png)
-
-Finally, launch the fifth cell **(1)**. If everything worked on the first try you can launch the code as is. However, if you had to launch the training (fourth cell) several times before it worked, you would need to add a number in the code **(3)** corresponding to the training run number which you can find in **(2)**.
+If everything worked on the first try you can launch the code as is. However, if you had to launch the training (seventh cell) several times before it worked, you would need to add a number in the code **(3)** corresponding to the training run number which you can find in **(2)**.
 
 ![alt text](https://zebrazoom.org/img/googleColab5.png)
 
