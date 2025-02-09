@@ -153,6 +153,8 @@ If everything worked on the first try you can launch the code as is. However, if
 
 Running this last cell will download a .pt file on your computer, which we will need for the next final step.
 
+If you want to do data augmentation through Google Colab / Ultralytics instead of through Roboflow (which may be useful to bypass Roboflow's limitations on dataset size) you can use this [Google Colab notebook](https://colab.research.google.com/gist/oliviermirat/bcd45165eff0e7d891f42afc775690b4/zebrazoomyolov11training.ipynb). Available data augmentations techniques can be found here: [data augmentations techniques](https://docs.ultralytics.com/modes/train/#augmentation-settings-and-hyperparameters).
+
 ## Running the tracking with ZebraZoom on your computer (no need for GPUs)
 
 First install ZebraZoom <a href="/docs/gettingStarted/installation" target="_blank">ZebraZoom installation guide</a>.
