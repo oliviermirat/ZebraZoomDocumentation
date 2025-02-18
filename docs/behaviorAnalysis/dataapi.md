@@ -108,6 +108,14 @@ You can retrieve any data for any time interval (specified in seconds) using the
 data = dataAPI.getDataPerTimeInterval(videoName, numWell, numAnimal, startTimeInSeconds, endTimeInSeconds, parameterName)
 ```
 
+### setDataPerTimeInterval
+
+You can then place back any data for any time interval (specified in seconds) using the function below. Available parameters are: HeadPos, Heading, TailAngle, TailLength, TailPosX and TailPosY.
+
+```
+data = dataAPI.setDataPerTimeInterval(videoName, numWell, numAnimal, startTimeInSeconds, endTimeInSeconds, parameterName, newValues)
+```
+
 ### getKinematicParametersPerBout
 
 You can retrieve kinematic parameters for each bout using the function below. It returns a dictionary mapping parameter names to values. If kinematic parameters were not calculated during the tracking process, they will automatically be calculated by the dataAPI and stored inside the hdf5 format.
