@@ -155,6 +155,8 @@ If everything worked on the first try you can launch this last cell as is. Howev
 
 If you want to do data augmentation through Google Colab / Ultralytics instead of through Roboflow (which may be useful to bypass Roboflow's limitations on dataset size) you can use this [Google Colab notebook](https://colab.research.google.com/gist/oliviermirat/bcd45165eff0e7d891f42afc775690b4/zebrazoomyolov11training.ipynb). Available data augmentations techniques can be found here: [data augmentations techniques](https://docs.ultralytics.com/modes/train/#augmentation-settings-and-hyperparameters).
 
+NB: More advanced scripts (not immediately necessary, for advanced users only, try it only later): if you want to test the impact of different training dataset and YOLO model sizes, you can try using these scripts: [Google Colab notebook](https://colab.research.google.com/gist/oliviermirat/1e98aef3b6f99a76ab00e9a3dbd9fb75/zebrazoomyolov11training_testtrainingdatasetsize.ipynb), [Plotting results](https://github.com/oliviermirat/ZebraZoom/blob/master/DLrelatedFiles/testDifferentTrainingSetAndModelSizes.py), [Plotting results with error bars](https://github.com/oliviermirat/ZebraZoom/blob/master/DLrelatedFiles/testDifferentTrainingSetAndModelSizes_errorBars.py).
+
 ## Running the tracking with ZebraZoom on your computer (no need for GPUs)
 
 First install ZebraZoom <a href="/docs/gettingStarted/installation" target="_blank">ZebraZoom installation guide</a>.
