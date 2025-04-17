@@ -6,6 +6,8 @@ sidebar_position: 2
 
 **Please contact us at info@zebrazoom.org if you need help!**
 
+![alt text for screen readers](https://zebrazoom.org/videos/gif/deepLearningTail.gif)
+
 ## Method 1 (recommended): Tracking fish tails with ZebraZoom's instance segmentation deep learning based tracking
 
 The method is very similar to tracking centers of mass with deep learning as explained in <a href="/docs/DLtracking/centerOfMassTracking" target="_blank">this tutorial</a> with a few minor differences listed below. Please follow <a href="/docs/DLtracking/centerOfMassTracking" target="_blank">the tutorial for center of mass tracking</a> while taking into account the differences listed below:
