@@ -6,6 +6,8 @@ sidebar_position: 1
 
 **Please contact us at info@zebrazoom.org if you need help!**
 
+![alt text for screen readers](https://zebrazoom.org/videos/gif/pipetteTouch_zoom.gif)
+
 ## Create a training dataset on RoboFlow
 
 ### Uploading images
