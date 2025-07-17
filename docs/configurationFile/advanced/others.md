@@ -1,5 +1,5 @@
 ---
-sidebar_position: 8
+sidebar_position: 9
 ---
 
 # Other parameters
@@ -57,6 +57,18 @@ For freely moving animals (not for head embedded fish), if an animal on a video 
 However, if you want to track a video for which the animal is barely moving and for which the background is fairly uniform and on which the border of wells can't be seen (or if you launch the tracking on a ROI where the borders of the wells can't be seen), then you can create a configuration file using a special technique:
 
 After clicking on "Prepare configuration file for tracking" from the main menu of the GUI, check the box "Click here to start from a configuration file previously created (instead of from scratch)." then after clicking "Select the video you want to create a configuration file for", choose the configuration file toCreateConfigFileForBarelyMovingAnimals.json provided in the configuration file folder, and then the video you want to create a configuration file for. For freely moving fish, it is usually advised to then choose the "Recommended method: Automatic Parameters Setting". Creating a configuration file using this technique will make ZebraZoom set the background of the video to a uniform image equal to the median of the initially extracted background which should allow ZebraZoom to perform an accurate tracking in most cases.
+
+## Ignoring pixels too far away from the center of a circular well:
+
+Pixels too far away from the center of a circular well can be ignored using the following parameter:
+
+```
+'setToWhiteAllPixelsTooFarFromTheCenter': 110,
+```
+
+In the example above, 110 is the threshold defining the maximum distance from the center of the well.
+
+This option is only available when the hyperparameter fasterMultiprocessing is equal to 0 or 1.
 
 ## Other parameters:
 
