@@ -6,6 +6,16 @@ sidebar_position: 1
 
 Click on "Analyze ZebraZoom's outputs" in the main menu. Then you can choose to either compare different populations of animals with kinematic parameters or to cluster bouts of movements.
 
+## Pixel size calculation
+
+First find a width measurement in the metric system by measuring with a ruler, directly on your physical setup (not on your laptop screen) the full width shown in the video you recorded. 
+
+Then find the corresponding width measurement in number of pixels by right-clicking on your video, clicking on properties and checking the details/information about the video resolution to find the corresponding width in pixels. 
+
+Finally, you should divide the width measurement in the metric system by the corresponding width in pixels to find the pixel size. 
+
+The same can be done with the height instead of the width, of course.
+
 ## Kinematic parameters
 
 In addition to the descriptions provided below, it is also possible to directly read the code used for the calculation of the kinematic parameters [on this page of the github repository](https://github.com/oliviermirat/ZebraZoom/blob/master/zebrazoom/dataAnalysis/datasetcreation/getGlobalParameters.py). 
